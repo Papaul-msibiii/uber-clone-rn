@@ -7,7 +7,7 @@ const data = [
     {
         id: "123",
         title: "Get a ride",
-        image: "https://links.papareact.com/28w",
+        image: "https://links.papareact.com/3pn",
         screen: "MapScreen",
     },
     {
