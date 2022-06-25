@@ -3,14 +3,15 @@ import React from 'react'
 import tw from 'twrnc';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { GOOGLE_MAP_APIKEY } from '@env';
+import { GOOGLE_MAPS_APIKEY } from '@env';
 
 
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView style={tw`bg-white h-full`}>
+    <SafeAreaView style={tw`bg-red-100 h-full`}>
         <View style={tw`p-5`}>
+       
             <Image 
                 style={{
                     width: 100,
@@ -23,7 +24,25 @@ const HomeScreen = () => {
             />
 
             <GooglePlacesAutocomplete
-            placeholder='Where From?'
+                placeholder='Where From?'
+                styles={{
+                    container: {
+                        flex: 0,
+                    },
+                    textInput: {
+                        fontSize: 18
+                    },
+                }}
+                onPress={(data, details) => {
+                    console.log(data)
+                    console.log(details)
+                }}
+                enablePoweredByContainer={false}
+                minLength={2}
+                query={{
+                    key: GOOGLE_MAPS_APIKEY,
+                    language: "en"
+                }}
                 nearbyPlacesAPI='GooglePlacesSearch'
                 debounce={400}
             />
